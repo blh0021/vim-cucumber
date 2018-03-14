@@ -80,7 +80,7 @@ endfunction
 
 function! s:stepmatch(receiver,target)
   if a:receiver =~ '^[''"].*[''"]$'
-    let pattern = '^'.escape(substitute(a:receiver[1:-2],'$\w\+','(.*)','g'),'/').'$'
+    let pattern = '^'.escape(substitute(a:receiver[1:-2],'$\w\+\|{.*}','(.*)','g'),'/').'$'
   elseif a:receiver =~ '^/.*/$'
     let pattern = a:receiver[1:-2]
   elseif a:receiver =~ '^%r..*.$'
